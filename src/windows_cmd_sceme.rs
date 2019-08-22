@@ -1,3 +1,4 @@
+#[allow(non_upper_case_globals)]
 pub const Red:&str = "\x1B[1;31m";
 pub const Black:&str = "\x1B[1;30m";
 pub const Green:&str ="\x1B[1;32m" ;

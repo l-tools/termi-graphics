@@ -19,10 +19,15 @@ impl Animation{
         an1
     }
     pub fn play(&self){
+        let mut cnt = 0usize;
         for i in 0..(self.fps*self.length/(self.roll.len() as u8)){
-            self.roll[i as usize].print_screen();
+            self.roll[cnt].print_screen();
             print!("\x1B[2J");
             thread::sleep(time::Duration::from_millis(1000/self.fps as u64));
+            cnt+=1;
+            if cnt == self.roll.len(){
+                cnt = 0;
+            }
         }
         
     }

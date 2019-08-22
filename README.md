@@ -1,2 +1,2 @@
-# termiGraphcs
+# termiGraphics
 ## needs explaining
