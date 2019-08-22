@@ -124,7 +124,7 @@ impl Screen{
             print!("\n");
         }
     }
-    pub fn attach(&mut self,shape:Vec<Vec<u8>>,x:u8,y:u8,color:PixelColors){
+    pub fn attach(&mut self,shape:Vec<Vec<u8>>,x:u8,y:u8){
         if x>self.width{
             panic!("out of bounds! width is too big");
         }
@@ -135,17 +135,10 @@ impl Screen{
         let mut cor_y = y as usize;
         for i in shape{
             for j in i{
-               if j==1{
-                   match color{
-                    PixelColors::Red =>self.pixel_vec[cor_y][cor_x]=1,
-                    PixelColors::Blue =>self.pixel_vec[cor_y][cor_x]=2,
-                    PixelColors::Green =>self.pixel_vec[cor_y][cor_x]=3,
-                    PixelColors::Yellow =>self.pixel_vec[cor_y][cor_x]=4,
-                    PixelColors::Black =>self.pixel_vec[cor_y][cor_x]=5,
-                    PixelColors::Cyan =>self.pixel_vec[cor_y][cor_x]=6,
-                    PixelColors::Magenta =>self.pixel_vec[cor_y][cor_x]=7,
-                    PixelColors::White =>self.pixel_vec[cor_y][cor_x]=8,
-                   }
+               if j>0{
+                    self.pixel_vec[cor_y][cor_x]=j;
+               }else if j>8{
+                println!("no such color");
                } 
                cor_x+=1;
             }
