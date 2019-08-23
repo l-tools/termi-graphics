@@ -1,8 +1,8 @@
-mod pixel_art;
-mod color_string;
+pub mod pixel_art;
+pub mod color_string;
 mod ubuntu_terminal_sceme;
 mod windows_cmd_sceme;
-mod animation;
+pub mod animation;
 //use pixel_art::{PixelColors,Screen};
 //use std::{thread, time};
 //fn main() {

@@ -29,6 +29,7 @@ impl Animation{
                 cnt = 0;
             }
         }
+        self.roll[cnt].print_screen();
         
     }
     pub fn pause(&self){

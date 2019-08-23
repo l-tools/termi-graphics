@@ -55,20 +55,6 @@ impl Shape{
 
     }
 }
-pub fn print_field(width:u8,height:u8){
-    for y in 0..height{
-        print!("{}  {}",BlackScr,CLOSING_COLOR);
-        for x in 0..width{ 
-            print!(" ");
-        }
-        println!("{}  {}",BlackScr,CLOSING_COLOR);
-    }
-    print!("{}",BlackScr);
-    for i in 0..width{
-        print!("  ");
-    }
-    println!("{}",CLOSING_COLOR);
-}
 pub struct Screen{
     width:u8,
     height:u8,
@@ -137,6 +123,28 @@ impl Screen{
             for j in i{
                if j>0{
                     self.pixel_vec[cor_y][cor_x]=j;
+               }else if j>8{
+                println!("no such color");
+               } 
+               cor_x+=1;
+            }
+            cor_y+=1;
+            cor_x = (x) as usize;
+        }
+    }
+    pub fn dittach(&mut self,shape:Vec<Vec<u8>>,x:u8,y:u8){
+        if x>self.width{
+            panic!("out of bounds! width is too big");
+        }
+        if x>self.height{
+            panic!("out of bounds! height is too big");
+        }
+        let mut cor_x = (x) as usize;
+        let mut cor_y = y as usize;
+        for i in shape{
+            for j in i{
+               if j>0{
+                    self.pixel_vec[cor_y][cor_x]=0;
                }else if j>8{
                 println!("no such color");
                } 
