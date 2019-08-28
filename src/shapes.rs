@@ -1,7 +1,7 @@
-use crate::pixel_art::{Shape,PixelColors};
+use crate::pixel_art::PixelColors;
 
 
-pub fn square(x:u8, color:PixelColors)-> Vec<Vec<u8>>{
+pub fn square(x:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
     let mut col1;
     match color{
             PixelColors::Red => col1 = 1,
@@ -18,13 +18,13 @@ pub fn square(x:u8, color:PixelColors)-> Vec<Vec<u8>>{
     if x ==1{
         &vec2.push(col1);
         &vec1.push(vec2);
-        return vec1;
+        return Some(vec1);
     }else if x==2{
         &vec2.push(col1);
         &vec2.push(col1);
         &vec1.push(vec2.clone());
         &vec1.push(vec2);
-        return vec1;
+        return Some(vec1);
     }
     for i in 0..x{
         &vec2.push(col1);
@@ -45,9 +45,16 @@ pub fn square(x:u8, color:PixelColors)-> Vec<Vec<u8>>{
         &vec2.push(col1);
     }
     &vec1.push(vec2);
-    vec1
+    Some(vec1)
 }
-pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Vec<Vec<u8>>{
+pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
+    if x==y{
+        return square(x,color);
+    }else if x==1{
+        return line(y,color,true);
+    }else if y==1{
+        return line(x,color,false);
+    }
     let mut col1;
     match color{
             PixelColors::Red => col1 = 1,
@@ -80,9 +87,9 @@ pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Vec<Vec<u8>>{
         &vec2.push(col1);
     }
     &vec1.push(vec2);
-    vec1
+    Some(vec1)
 }
-pub fn line(len:u8,color:PixelColors, ver:bool)->Vec<Vec<u8>>{
+pub fn line(len:u8,color:PixelColors, ver:bool)->Option<Vec<Vec<u8>>>{
     let mut col1;
     match color{
             PixelColors::Red => col1 = 1,
@@ -107,10 +114,15 @@ pub fn line(len:u8,color:PixelColors, ver:bool)->Vec<Vec<u8>>{
             &vec1.push(vec2.clone());   
         }
     }
-    vec1
+    Some(vec1)
 }
-/*
-pub fn triangle(base:u8,color:PxelColors)->Vec<Vec<u8>>{
+pub fn triangle(base:u8,color:PixelColors)-> Option<Vec<Vec<u8>>>{
+    if base%2==0{
+        return None;
+    }
+    if base<5{
+        return None;
+    }
     let mut col1;
     match color{
             PixelColors::Red => col1 = 1,
@@ -124,28 +136,28 @@ pub fn triangle(base:u8,color:PxelColors)->Vec<Vec<u8>>{
     }
     let mut vec1 = Vec::new();
     let mut vec2 = Vec::new();
-    let mut loc = 0;
+    let mut loc = base/2;
     let mut row = 0;
-    if base%2==0{
-        for x in 0..(base/2){
+    while loc !=1{
+        for x in 0..(base/2 - row){
             &vec2.push(0);
         }
         &vec2.push(col1);
-        &vec2.push(col1);
-        loc = (base/2)-1;
-        for x in ((base/2)+2)..base{
+        loc = base/2-row;
+        for x in (((base/2)-row)..base-(base/2+2)+row){
             &vec2.push(0);
+        }
+        if row !=0{
+            &vec2.push(col1);
         }
         &vec1.push(vec2);
-    }else{
-        for x in 0..(base/2){
-            &vec2.push(0);
-        }
-        &vec2.push(col1);
-        loc = base/2;
-        for x in ((base/2)+2)..base{
-            &vec2.push(0);
-        }
-        &vec1.push(vec2);
+        vec2 = Vec::new();
+        row+=1;
     }
-}*/
+    vec2 = Vec::new();
+    for x in 0..base{
+            vec2.push(col1);
+    }
+    &vec1.push(vec2);
+    Some(vec1)
+}

@@ -15,46 +15,6 @@ pub enum PixelColors{
     Magenta,
     White,
 }
-pub struct Shape{
-    color: String,
-    width: u8,
-    height: u8,
-    shape_vec:Vec<Vec<u8>>,
-}
-impl Shape{
-    pub fn new(width:u8,height:u8,color1:&str)->Shape{
-        let mut vec1 = Vec::new();
-        let mut shape_vec = Vec::new();
-        for i in 0..height{
-           for j in 0..width{
-                &vec1.push(0);
-           } 
-           &shape_vec.push(vec1);
-           vec1 = Vec::new();
-        }
-        let shape1 = Shape{
-            color: color1.to_string(),
-            width,
-            height,
-            shape_vec,
-        };
-        shape1
-    }
-    pub fn cprint(self){
-        for row in &self.shape_vec{
-            for sq in row{
-                if *sq==1{
-                    print!("{}  {}",self.color,CLOSING_COLOR);
-                }else{
-                    print!(" ");
-                }
-            }
-            print!("\n");
-        }
-
-
-    }
-}
 pub struct Screen{
     width:u8,
     height:u8,
@@ -62,7 +22,10 @@ pub struct Screen{
     pixel_vec:Vec<Vec<u8>>,
 } 
 impl Screen{
-    pub fn new(width:u8,height:u8,color:PixelColors)->Screen{
+    pub fn new(width:u8,height:u8,color:PixelColors)->Option<Screen>{
+        if height == 0 || width == 0{
+            return None;
+        }
         let mut vec1 = Vec::new();
         let mut pixel_vec = Vec::new();
         for i in 0..height{
@@ -72,10 +35,8 @@ impl Screen{
            &pixel_vec.push(vec1);
            vec1 = Vec::new();
         }
-        let screen1 = Screen{width,height,color,
-            pixel_vec, 
-        };
-        screen1
+        let screen1 = Screen{width,height,color,pixel_vec,};
+        Some(screen1)
     }
     pub fn print_screen(&self){
         for y in &self.pixel_vec{
@@ -110,48 +71,56 @@ impl Screen{
             print!("\n");
         }
     }
-    pub fn attach(&mut self,shape:Vec<Vec<u8>>,x:u8,y:u8){
+    pub fn attach(&mut self,shape:&Vec<Vec<u8>>,x:u8,y:u8)->Result<(),&str>{
         if x>self.width{
-            panic!("out of bounds! width is too big");
+            return Err("out of bounds! width is too big");
         }
         if x>self.height{
-            panic!("out of bounds! height is too big");
+            return Err("out of bounds! height is too big");
         }
         let mut cor_x = (x) as usize;
         let mut cor_y = y as usize;
         for i in shape{
             for j in i{
-               if j>0{
-                    self.pixel_vec[cor_y][cor_x]=j;
-               }else if j>8{
-                println!("no such color");
+               if *j>0{
+                    self.pixel_vec[cor_y][cor_x]=*j;
+               }else if *j>8{
+                return Err("no such color");
                } 
                cor_x+=1;
             }
             cor_y+=1;
             cor_x = (x) as usize;
         }
+        Ok(())
     }
-    pub fn dittach(&mut self,shape:Vec<Vec<u8>>,x:u8,y:u8){
+    pub fn dittach(&mut self,shape:&Vec<Vec<u8>>,x:u8,y:u8)->Result<(),&str>{
         if x>self.width{
-            panic!("out of bounds! width is too big");
+            return Err("out of bounds! width is too big");
         }
         if x>self.height{
-            panic!("out of bounds! height is too big");
+            return Err("out of bounds! height is too big");
         }
-        let mut cor_x = (x) as usize;
+        let mut cor_x = x as usize;
         let mut cor_y = y as usize;
         for i in shape{
             for j in i{
-               if j>0{
+               if *j>0{
                     self.pixel_vec[cor_y][cor_x]=0;
-               }else if j>8{
-                println!("no such color");
+               }else if *j>8{
+                return Err("no such color");
                } 
                cor_x+=1;
             }
             cor_y+=1;
-            cor_x = (x) as usize;
+            cor_x = x as usize;
         }
+        Ok(())
     }
 }
+pub struct Canvas{
+    width:u8,
+    height:u8,
+    color:PixelColors,
+    pixel_vec:Vec<Vec<u8>>,
+} 
