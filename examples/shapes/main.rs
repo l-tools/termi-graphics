@@ -1,4 +1,4 @@
-use termiGraphics::{pixel_art::{PixelColors,Screen},
+use termiGraphics::{pixel_art::{PixelColors,Screen,Canvas},
                     shapes::{square,line,rectangle,triangle},
                     animation::Animation};
 
@@ -21,17 +21,18 @@ fn main(){
     let shape6 =triangle(9,PixelColors::Magenta).unwrap();
     let mut vecer = Vec::new();
     vecer.push(vec![8,0,0,0,8]);
-     
+    let mut canvas1 = Canvas::new(30,30,PixelColors::Black).unwrap(); 
     let mut screen1 = Screen::new(35,35,PixelColors::Black).unwrap();
-    screen1.attach(&shape1,1,1).unwrap();
+    screen1.attach_pixels(&shape1,1,1).unwrap();
     let mut screen2 = Screen::new(35,35,PixelColors::Black).unwrap();
-    screen2.attach(&shape5,8,8).unwrap();
-    screen2.attach(&shape2,10,10).unwrap();
-    screen2.attach(&shape2,13,10).unwrap();
-    screen2.attach(&shape4,12,13).unwrap();
-    screen2.attach(&vecer,10,14).unwrap();
-    screen2.attach(&shape3,10,15).unwrap();
-    screen2.attach(&shape6,22,22).unwrap();
+    canvas1.attach(&shape5,8,8).unwrap();
+    canvas1.attach(&shape2,10,10).unwrap();
+    canvas1.attach(&shape2,13,10).unwrap();
+    canvas1.attach(&shape4,12,13).unwrap();
+    canvas1.attach(&vecer,10,14).unwrap();
+    canvas1.attach(&shape3,10,15).unwrap();
+    canvas1.attach(&shape6,16,16).unwrap();
+    screen2.attach(&canvas1,0,0);
 
     &vecan.push(screen1);
     &vecan.push(screen2);
