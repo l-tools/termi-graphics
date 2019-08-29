@@ -1,4 +1,4 @@
-use termiGraphics::{pixel_art::{PixelColors,Screen,Canvas},
+use termi_graphics::{pixel_art::{PixelColors,Screen,Canvas},
                     shapes::{square,line,rectangle,triangle},
                     animation::Animation};
 

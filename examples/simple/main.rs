@@ -1,5 +1,5 @@
-use termiGraphics::pixel_art::{Screen,PixelColors,Canvas};
-use termiGraphics::animation::Animation;
+use termi_graphics::pixel_art::{Screen,PixelColors,Canvas};
+use termi_graphics::animation::Animation;
 
 fn main(){
     let mut vecan = Vec::new();

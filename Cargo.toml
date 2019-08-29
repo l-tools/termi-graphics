@@ -1,5 +1,5 @@
 [package]
-name = "termiGraphics"
+name = "termi-graphics"
 version = "0.1.5"
 authors = ["guy <guy123levinger@gmail.com>"]
 edition = "2018"
