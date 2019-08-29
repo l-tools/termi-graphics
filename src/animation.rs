@@ -19,8 +19,8 @@ impl Animation{
     /// defines a new animation
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors};
-    /// use termiGraphics::animation::Animation;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors};
+    /// use termi_graphics::animation::Animation;
     /// let screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen2 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen3 = Screen::new(25,25,PixelColors::Red).unwrap();
@@ -35,8 +35,8 @@ impl Animation{
     /// starts the animation
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors};
-    /// use termiGraphics::animation::Animation;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors};
+    /// use termi_graphics::animation::Animation;
     /// let screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen2 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen3 = Screen::new(25,25,PixelColors::Red).unwrap();
@@ -63,8 +63,8 @@ impl Animation{
     /// doesn't work well just yet - making threadpools in upcoming changes
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors};
-    /// use termiGraphics::animation::Animation;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors};
+    /// use termi_graphics::animation::Animation;
     /// let screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen2 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let screen3 = Screen::new(25,25,PixelColors::Red).unwrap();

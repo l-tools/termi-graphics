@@ -4,8 +4,8 @@ use crate::pixel_art::PixelColors;
 ///#Examples
 ///
 ///```
-///use termiGraphics::pixel_art::PixelColors;
-///use termiGraphics::shapes::square;
+///use termi_graphics::pixel_art::PixelColors;
+///use termi_graphics::shapes::square;
 ///let sqr = vec![vec![2,2,2],
 ///               vec![2,0,2],
 ///               vec![2,2,2]];
@@ -69,8 +69,8 @@ pub fn square(x:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
 ///#Examples
 ///
 ///```
-///use termiGraphics::pixel_art::PixelColors;
-///use termiGraphics::shapes::rectangle;
+///use termi_graphics::pixel_art::PixelColors;
+///use termi_graphics::shapes::rectangle;
 ///let rct = vec![vec![4,4,4,4,4],
 ///               vec![4,0,0,0,4],
 ///               vec![4,4,4,4,4]];
@@ -134,8 +134,8 @@ pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
 ///#Examples
 ///
 ///```
-///use termiGraphics::pixel_art::PixelColors;
-///use termiGraphics::shapes::line;
+///use termi_graphics::pixel_art::PixelColors;
+///use termi_graphics::shapes::line;
 ///let ln = vec![vec![3,3,3,3,3,3,3,3,3,3]];
 ///let ln2 = line(10,PixelColors::Green,false);
 ///assert_eq!(ln,ln2.unwrap());
@@ -182,8 +182,8 @@ pub fn line(len:u8,color:PixelColors, ver:bool)->Option<Vec<Vec<u8>>>{
 ///#Examples
 ///
 ///```
-///use termiGraphics::pixel_art::PixelColors;
-///use termiGraphics::shapes::triangle;
+///use termi_graphics::pixel_art::PixelColors;
+///use termi_graphics::shapes::triangle;
 ///let trg = vec![vec![0,0,0,0,2,0,0,0,0], 
 ///               vec![0,0,0,2,0,2,0,0,0], 
 ///               vec![0,0,2,0,0,0,2,0,0], 

@@ -27,7 +27,7 @@ impl Screen{
     /// defines a new screen
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors};
+    /// use termi_graphics::pixel_art::{Screen,PixelColors};
     /// let screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     ///```
     ///creates a new 25x25 blank red screen
@@ -108,8 +108,8 @@ impl Screen{
     ///attach takes a drawn upon canvas and attaches it to the screen at a given point
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors,Canvas};
-    /// use termiGraphics::shapes::line;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors,Canvas};
+    /// use termi_graphics::shapes::line;
     /// let mut screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let mut canvas1 = Canvas::new(5,5,PixelColors::Red).unwrap();
     /// let ln1 = line(4,PixelColors::Green,false).unwrap();
@@ -145,8 +145,8 @@ impl Screen{
     ///you point to a certain spot and it earases in a fixed manor
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors,Canvas};
-    /// use termiGraphics::shapes::line;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors,Canvas};
+    /// use termi_graphics::shapes::line;
     /// let mut screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let mut canvas1 = Canvas::new(5,5,PixelColors::Red).unwrap();
     /// let ln1 = line(4,PixelColors::Green,false).unwrap();
@@ -181,8 +181,8 @@ impl Screen{
     ///dittach_pixels can remove a vec of pixels of the screen, again with the eareaser analogy
     /// #Examples
     ///```
-    /// use termiGraphics::pixel_art::{Screen,PixelColors,Canvas};
-    /// use termiGraphics::shapes::line;
+    /// use termi_graphics::pixel_art::{Screen,PixelColors,Canvas};
+    /// use termi_graphics::shapes::line;
     /// let mut screen1 = Screen::new(25,25,PixelColors::Red).unwrap();
     /// let mut canvas1 = Canvas::new(5,5,PixelColors::Red).unwrap();
     /// let ln1 = line(4,PixelColors::Green,false).unwrap();
