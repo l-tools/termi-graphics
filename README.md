@@ -77,8 +77,7 @@ fn main(){
 ```
 #### I guess that seems tedious as well but when you are building something more than just a smiley face, shapes and canvases are someting much easier to design and follow then mere pixel vectors.
 
-### If you want to checkout the crate further that you should take a look in the [examples](https://github.com/l-tools/termiGrapichs/examples)
- folder.
+### If you want to checkout the crate further that you should take a look in the [examples](https://github.com/l-tools/termiGrapichs/examples) folder.
 
 
 ## More will be coming soon - in this crate and in others!
