@@ -20,7 +20,7 @@ use crate::pixel_art::PixelColors;
 ///assert_eq!(sqr3,sqr4.unwrap());
 ///```
 pub fn square(x:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
-    let mut col1;
+    let mut col1 = 0;
     match color{
             PixelColors::Red => col1 = 1,
             PixelColors::Blue => col1 = 2,
@@ -96,7 +96,7 @@ pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
     }else if y==1{
         return line(x,color,false);
     }
-    let mut col1;
+    let mut col1=0;
     match color{
             PixelColors::Red => col1 = 1,
             PixelColors::Blue => col1 = 2,
@@ -152,7 +152,7 @@ pub fn rectangle(x:u8,y:u8, color:PixelColors)-> Option<Vec<Vec<u8>>>{
 ///assert_eq!(ln3,ln4.unwrap());
 ///```
 pub fn line(len:u8,color:PixelColors, ver:bool)->Option<Vec<Vec<u8>>>{
-    let mut col1;
+    let mut col1=0;
     match color{
             PixelColors::Red => col1 = 1,
             PixelColors::Blue => col1 = 2,
@@ -205,7 +205,7 @@ pub fn triangle(base:u8,color:PixelColors)-> Option<Vec<Vec<u8>>>{
     if base<5{
         return None;
     }
-    let mut col1;
+    let mut col1=0;
     match color{
             PixelColors::Red => col1 = 1,
             PixelColors::Blue => col1 = 2,
