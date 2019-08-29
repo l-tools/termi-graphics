@@ -3,6 +3,13 @@ name = "termi-graphics"
 version = "0.1.5"
 authors = ["guy <guy123levinger@gmail.com>"]
 edition = "2018"
+description = "a low-level pixel art dev tool designed for cli art"
+repository = "http://github.com/l-tools/termi-graphics"
+readme = "README.md"
+categories = ["Command-line interface","GUI","Development tools"]
+keywords = ["cli", "api","gui","gamedev"]
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/termi-graphics/0.1.5/termi_graphics"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -12,13 +19,6 @@ opt-level = 0
 [profile.release]
 opt-level = 3
 
-description = "a low-level pixel art dev tool designed for cli art"
-repository = "http://github.com/l-tools/termi-graphics"
-readme = "README.md"
-categories = ["Command-line interface","GUI","Development tools"]
-keywords = ["cli", "api","gui","gamedev"]
-license = "MIT OR Apache-2.0"
-documentation = "https://docs.rs/termi-graphics/0.1.5/termi_graphics"
 
 [lib]
 name = "termi_graphics"
