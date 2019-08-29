@@ -1,6 +1,6 @@
 [package]
 name = "termi-graphics"
-version = "0.1.5"
+version = "0.1.6"
 authors = ["guy <guy123levinger@gmail.com>"]
 edition = "2018"
 description = "a low-level pixel art dev tool designed for cli art"
