@@ -6,12 +6,14 @@ use crate::ubuntu_terminal_sceme::*;
 use crate::windows_cmd_sceme::*;
 
 use crate::pixel_art::Screen;
-use std::{thread, time};
+use std::{thread,time};
+use std::thread::JoinHandle;
 ///animation struct is used to connect between different screens and run them in a fixed speed.
 pub struct Animation{
     roll:Vec<Screen>,
     fps:u8,
     length:u8,
+    //anim_thread:&JoinHandle,
 }
 impl Animation{
     /// defines a new animation
@@ -26,7 +28,8 @@ impl Animation{
     ///```
     ///creates a new animation made of 3 reoccuring screen running at 15 fps for 10 seconds.
     pub fn new(roll:Vec<Screen>,fps:u8,length:u8)->Animation{
-        let an1 = Animation{roll,fps,length};
+        //let anim_thread = thread::spawn(||{});
+        let an1 = Animation{roll,fps,length,/*anim_thread*/};
         an1
     }
     /// starts the animation
@@ -57,6 +60,7 @@ impl Animation{
         
     }
     /// stops animation 
+    /// doesn't work well just yet - making threadpools in upcoming changes
     /// #Examples
     ///```
     /// use termiGraphics::pixel_art::{Screen,PixelColors};
