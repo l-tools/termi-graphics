@@ -22,7 +22,7 @@
 ### First use import the crate:
 ```rust
 extern crate termiGraphics;  
-use termiGraphics::pixel_art; \\that is the basic part of the crate  
+use termiGraphics::pixel_art; //this is the most basic useable part of the crate  
 ```
 
 ### There are 2 ways:
