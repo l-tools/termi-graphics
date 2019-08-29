@@ -1,10 +1,10 @@
 # termiGraphics
 ## What is it and what is it for?
 
-### termiGraphics is a rust crate(library) that should be used to build terminal based graphics and graphical interfaces.
-### termiGraphics offers low level graphics desgin options using canvases and screens, and the ability to run them consecutively with the Animation struct.
-### termiGraphics works best(for now) with the ubuntu terminal coloring scheme, but it still may work on some windows and mac computers.
-### There will soon be other crates designed to create other lower or higher level graphical interfaces on other places other then the CLI.
+#### termiGraphics is a rust crate(library) that should be used to build terminal based graphics and graphical interfaces.
+#### termiGraphics offers low level graphics desgin options using canvases and screens, and the ability to run them consecutively with the Animation struct.
+#### termiGraphics works best(for now) with the ubuntu terminal coloring scheme, but it still may work on some windows and mac computers.
+#### There will soon be other crates designed to create other lower or higher level graphical interfaces on other places other then the CLI.
 
 ## How to install it?
 
@@ -25,7 +25,7 @@ extern crate termiGraphics;
 use termiGraphics::pixel_art; \\that is the basic part of the crate  
 ```
 
-### There are a couple of ways:
+### There are 2 ways:
 ### The first one is to create the pixel layouts(2-dim vectors in our case) by yourself like this:
 ```rust
 fn main(){                                                             
@@ -75,9 +75,10 @@ fn main(){
 	let anim = Animation::new(vecan,15,3);
 }
 ```
-### I guess that seems tedious as well but when you are building something more than just a smiley face.
+#### I guess that seems tedious as well but when you are building something more than just a smiley face, shapes and canvases are someting much easier to design and follow then mere pixel vectors.
 
-### If you want to checkout the crate further that you should take a look in the examples folder.
+### If you want to checkout the crate further that you should take a look in the [examples](https://github.com/l-tools/termiGrapichs/examples)
+ folder.
 
 
 ## More will be coming soon - in this crate and in others!
